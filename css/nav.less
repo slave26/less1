@@ -1,0 +1,63 @@
+@import "variables.less";
+
+#navBorder(@first, @second) {
+  border-top-left-radius: @first;
+  border-top-right-radius: @second;
+  border-bottom-left-radius: @second;
+  border-bottom-right-radius: @first;
+}
+#navBorderHov() {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 20px;
+}
+nav {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  ul {
+    list-style-type: none;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: flash 1s 1;
+    li {
+      display: inline-block;
+      background-color: black;
+      padding: 20px 0px;
+      #navBorder(0px,20px);
+      &:hover {
+        #navBorderHov;
+      }
+      a {
+        padding: 20px 30px;
+        border: 2px @defaultColor solid;
+        color: @defaultColor;
+        text-decoration: none;
+        font-family: "Courier New", Courier, monospace;
+        transition: 0.2s;
+        #navBorder(0px,20px);
+        &:hover {
+          background-color: red;
+          transition: 0.2s;
+          #navBorderHov;
+        }
+      }
+    }
+    .logo {
+      float: left;
+      height: 60px;
+    }
+    .social {
+      float: right;
+      height: 60px;
+      margin-right: 15px;
+    }
+  }
+}
+.padajuci {
+  display: none;
+}
